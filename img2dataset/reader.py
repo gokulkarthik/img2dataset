@@ -99,7 +99,7 @@ class Reader:
                     df = pa.Table.from_pandas(pd.read_json(file))
                 elif self.input_format in ["csv", "csv.gz"]:
                     print("Using local code...")
-                    df = pd.read_csv(file)
+                    df = pa.Table.from_pandas(pd.read_csv(file))
                     #df = csv_pa.read_csv(file)
                 elif self.input_format in ["tsv", "tsv.gz"]:
                     df = csv_pa.read_csv(file, parse_options=csv_pa.ParseOptions(delimiter="\t"))
